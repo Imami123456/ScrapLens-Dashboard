@@ -178,15 +178,14 @@ ScrapLens/
 
 ---
 
-## 🌐 Deploying to Your Own GitHub Pages
+## 🌐 Live Deployment
 
-To host your own live instance of ScrapLens:
-1. Push this repository to your GitHub account (`https://github.com/Imami123456/ScrapLens-Dashboard`).
-2. Navigate to your repository's **Settings** tab.
-3. In the left sidebar, click **Pages**.
-4. Under **Build and deployment** &rarr; **Branch**, select `main` and root folder `/` (or `/docs`), then click **Save**.
-5. Within 60 seconds, your dashboard will be live at:
-   `https://imami123456.github.io/ScrapLens-Dashboard/`
+The dashboard is continuously deployed on GitHub Pages and runs entirely client-side:
+
+👉 **[Launch ScrapLens Live Demo](https://imami123456.github.io/ScrapLens-Dashboard/)**
+
+- **Client-Side Execution:** No backend server or Node runtime required; runs directly in the browser via D3.js v7.
+- **Zero-Barrier Ingestion:** Includes a pre-bundled 1,000-alloy contest dataset for instant 1-click exploration.
 
 ---
 
