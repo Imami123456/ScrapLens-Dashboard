@@ -1,0 +1,1227 @@
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    height: 100%;
+    font: 14px / 1.5 Arial, Helvetica, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a1a;
+}
+
+/* ── Top navigation bar ── */
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    background: #ffffff;
+    border-bottom: 2px solid #e5e7eb;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+
+.top-nav-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.01em;
+}
+
+.top-nav-logo {
+    font-size: 22px;
+    color: #0ea5e9;
+}
+
+.top-nav-sub {
+    font-size: 12px;
+    font-weight: 400;
+    color: #6b7280;
+    margin-left: 4px;
+}
+
+.top-nav-tabs {
+    display: flex;
+    gap: 4px;
+}
+
+/* ── Tab buttons ── */
+.tablink {
+    background: transparent;
+    color: #6b7280;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 6px 6px 0 0;
+    outline: none;
+}
+
+.tablink:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.tablink.active-tab {
+    color: #0ea5e9;
+    border-bottom: 3px solid #0ea5e9;
+    background: #f0f9ff;
+}
+
+/* ── Tab content base ── */
+.tabcontent {
+    display: none;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+}
+
+/* ── Data Loading page ── */
+#DataLoading.tabcontent {
+    background: #f9fafb;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.load-wrap {
+    width: 100%;
+    padding: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally centers the children */
+}
+
+/* ── Modern Hero Section for Upload ── */
+.load-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    padding: 50px 40px;
+    border-radius: 24px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    max-width: 650px;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.load-hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.load-hero-icon {
+    font-size: 52px;
+    margin-bottom: 16px;
+    animation: floatIcon 3.5s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+.load-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.load-desc {
+    font-size: 16px;
+    color: #64748b;
+    margin-bottom: 32px;
+    line-height: 1.6;
+    max-width: 80%;
+}
+
+.load-actions-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 8px 0 20px;
+}
+
+.load-demo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+}
+
+.load-demo-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(16, 185, 129, 0.5);
+}
+
+.load-divider {
+    font-size: 13px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.load-file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+}
+
+.load-file-label:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(14, 165, 233, 0.4);
+}
+
+.load-file-label input[type="file"] {
+    display: none;
+}
+
+/* ── Storage Status Message ── */
+.storage-status {
+    width: 100%;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 4px 15px rgba(22, 101, 52, 0.05);
+}
+
+.storage-status p {
+    font-size: 13px;
+    color: #166534;
+    margin: 0;
+    flex: 1;
+}
+
+.clear-storage-btn {
+    background: #ef4444;
+    color: #ffffff;
+    border: 1px solid #dc2626;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.clear-storage-btn:hover {
+    background: #dc2626;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+}
+
+/* ── Data table scroll wrapper ── */
+.table-scroll-wrap {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 240px);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+/* ── Data table ── */
+.dataTableClass {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    table-layout: auto;
+    min-width: 100%;
+}
+
+.tableHeaderClass {
+    border-right: 1px solid #d1d5db;
+    border-bottom: 2px solid #d1d5db;
+    padding: 10px 14px;
+    background: #1e3a5f;
+    color: #ffffff;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.tableBodyClass {
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 7px 14px;
+    color: #374151;
+    white-space: nowrap;
+    font-size: 12px;
+    background: #ffffff;
+    transition: background 0.12s;
+}
+
+tr:nth-child(even) .tableBodyClass {
+    background: #f8fafc;
+}
+
+tr:hover .tableBodyClass {
+    background: #dbeafe !important;
+    cursor: pointer;
+}
+
+/* ── Dashboard tab ── */
+#Dashboard.tabcontent {
+    padding: 0;
+    background: #f0f2f5;
+    overflow: hidden;
+}
+
+/* ── Dashboard CSS variables ── */
+:root {
+    --db-bg:     #f0f2f5;
+    --db-panel:  #ffffff;
+    --db-border: #e5e7eb;
+    --db-blue:   #0ea5e9;
+    --db-teal:   #0ea5e9;
+    --db-orange: #f97316;
+    --db-gold:   #f59e0b;
+    --db-text:   #111827;
+    --db-muted:  #6b7280;
+    --db-red:    #ef4444;
+    --db-green:  #10b981;
+}
+
+/* ── ScrapLens root ── */
+#scraplens-root {
+    width: 100%;
+    height: 100%;
+    background: var(--db-bg);
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--db-text);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ── Dashboard header bar (clean, minimal) ── */
+.db-header {
+    height: 48px;
+    min-height: 48px;
+    background: #ffffff;
+    border-bottom: 3px solid var(--db-blue);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+}
+
+.db-logo {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--db-blue);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+
+/* Shneiderman's Mantra: Details on Demand - hide stats by default */
+.db-stats {
+    display: none;
+}
+
+.db-stats {
+    font-size: 11px;
+    color: var(--db-muted);
+    white-space: nowrap;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 20px;
+    padding: 2px 10px;
+}
+
+.db-btn {
+    padding: 4px 12px;
+    background: transparent;
+    color: var(--db-blue);
+    border: 1px solid var(--db-blue);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.db-btn:hover {
+    background: var(--db-blue);
+    color: #ffffff;
+}
+
+/* Red destructive button for Clear Saved Data */
+.db-btn-danger {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.db-btn-danger:hover {
+    background: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(239,68,68,0.3);
+}
+
+/* Green badge shown in header when data is restored from cache */
+.db-restore-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: #15803d;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ── Main grid: 3-row stacked layout ── */
+.db-main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Row 1: PCP, Row 2: Scatter+Sankey, Row 3: Bar+Heatmap. 
+       Using minmax ensures rows never crush below their minimum heights, preventing overlap. */
+    grid-template-rows: minmax(240px, 2.7fr) minmax(320px, 3.65fr) minmax(320px, 3.65fr);
+    gap: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+}
+
+/* Two-column 50/50 row layout (Scatter + Sankey) */
+.db-row-sp-sk {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    min-height: 260px;
+    overflow: hidden;
+}
+
+/* Two-column 70/30 row layout (Bar 70% + Heatmap 30%) */
+.db-row-ba-hm {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    gap: 10px;
+    min-height: 240px;
+    overflow: hidden;
+}
+
+/* Legacy alias kept for backward compat */
+.db-row-50-50 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* ── Panels ── */
+.db-panel {
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.25s;
+}
+
+.db-panel:hover {
+    border-color: #0ea5e9;
+    box-shadow: 0 4px 16px rgba(14,165,233,0.15);
+}
+
+/* ── Full-screen expanded mode ── */
+.expanded-panel {
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    width: calc(100vw - 40px) !important;
+    height: calc(100vh - 40px) !important;
+    z-index: 9999 !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    border: 1px solid #94a3b8 !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    transition: none !important;
+}
+
+/* Optional overlay background behind expanded panel */
+body:has(.expanded-panel)::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+}
+
+/* ── Panel header row ── */
+.db-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.db-panel-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111827;
+    white-space: nowrap;
+}
+
+/* ── Per-chart action buttons inside panel header ── */
+.db-panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    flex-wrap: wrap;
+}
+
+.db-ba-actions {
+    flex-wrap: wrap;
+}
+
+.db-panel-label {
+    font-size: 8px;
+    color: #9ca3af;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.db-panel-actions:hover .db-panel-label {
+    opacity: 1;
+}
+
+.db-panel-select {
+    background: #f0f9ff;
+    color: #0c4a6e;
+    border: 1.5px solid #bae6fd;
+    border-radius: 6px;
+    padding: 4px 7px;
+    font-size: 9px;
+    font-weight: 500;
+    height: 24px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.db-panel-select:hover {
+    border-color: #0ea5e9;
+    background: #ffffff;
+}
+
+.db-panel-select:focus {
+    border-color: var(--db-blue);
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.1);
+}
+
+.db-panel-btn {
+    padding: 4px 10px;
+    height: 24px;
+    background: transparent;
+    color: var(--db-blue);
+    border: 1.5px solid var(--db-blue);
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+}
+
+.db-panel-btn:hover {
+    background: var(--db-blue);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+}
+
+.db-btn-primary {
+    background: var(--db-blue);
+    color: #ffffff;
+    border-color: var(--db-blue);
+}
+
+.db-btn-primary:hover {
+    background: #0284c7;
+    border-color: #0284c7;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+}
+
+.db-btn-success {
+    color: #10b981;
+    border-color: #10b981;
+}
+
+.db-btn-success:hover {
+    background: #10b981;
+    color: #ffffff;
+    border-color: #10b981;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.db-panel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 20px;
+    padding: 1px 8px;
+    font-size: 9px;
+    color: var(--db-blue);
+    cursor: pointer;
+}
+
+/* ── Hint bar below panel header (Details on Demand) ── */
+.db-panel-hint-bar {
+    font-size: 7px;
+    color: #d1d5db;
+    padding: 2px 0 3px 0;
+    flex-shrink: 0;
+    transition: color 0.2s;
+    line-height: 1.2;
+}
+
+.db-panel:hover .db-panel-hint-bar {
+    color: #9ca3af;
+}
+
+.db-panel-hint {
+    font-size: 9px;
+    color: #9ca3af;
+}
+
+/* ── Why icon (hover for justification - Details on Demand) ── */
+.db-why-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #d1d5db;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.db-panel-header:hover .db-why-icon {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+    color: #9ca3af;
+}
+
+.db-why-icon:hover::after {
+    content: attr(data-why);
+    position: absolute;
+    bottom: 120%;
+    right: 0;
+    background: #1f2937;
+    color: #f9fafb;
+    font-size: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    width: 230px;
+    white-space: normal;
+    z-index: 200;
+    line-height: 1.5;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+/* ── Chart SVG wrapper ── */
+.db-chart-wrap {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.db-chart-wrap svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ── Axes ── */
+.db-chart-wrap .axis path,
+.db-chart-wrap .axis line { stroke: #e5e7eb; }
+.db-chart-wrap .axis text { fill: #9ca3af; font-size: 9px; }
+
+/* ── PCP lines ── */
+.pc-line { fill: none; cursor: pointer; }
+.pc-ax-label { fill: #374151; font-size: 10px; font-weight: 600; cursor: grab; }
+.pc-ax-ticks text { fill: #9ca3af; font-size: 8px; }
+.pc-ax-ticks .domain,
+.pc-ax-ticks line { stroke: #e5e7eb; }
+
+/* ── PCP brush ── */
+.pc-brush .selection {
+    fill: #0ea5e9;
+    fill-opacity: 0.18;
+    stroke: #0ea5e9;
+    stroke-width: 1;
+}
+
+/* ── Tooltip ── */
+.db-tooltip {
+    position: fixed;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #f9fafb;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 10000 !important;
+    max-width: 240px;
+    line-height: 1.7;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.db-tooltip b { color: #38bdf8; }
+
+/* ── Pinned alloy detail strip ── */
+.db-detail {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 1px solid #0ea5e9;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    padding: 10px 20px;
+    width: 88%;
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    box-shadow: 0 -4px 20px rgba(14,165,233,0.12);
+    z-index: 10000 !important;
+}
+
+.db-detail-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0ea5e9;
+    white-space: nowrap;
+}
+
+.db-detail b { color: #0ea5e9; }
+
+.db-detail button {
+    margin-left: auto;
+    padding: 3px 10px;
+    background: transparent;
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.2s;
+}
+
+.db-detail button:hover {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+/* ── Filter badge ── */
+.db-filter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 9px;
+    color: #0ea5e9;
+}
+
+/* ── Loading overlay ── */
+#db-loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    flex-direction: column;
+    gap: 0;
+}
+
+.db-loading-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 44px 36px;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(14,165,233,0.25), 0 2px 8px rgba(0,0,0,0.18);
+    max-width: 360px;
+    width: 90%;
+    animation: db-box-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    border: 1px solid rgba(14,165,233,0.15);
+}
+
+@keyframes db-box-in {
+    from { opacity: 0; transform: scale(0.82) translateY(12px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+.db-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #e5e7eb;
+    border-top-color: #0ea5e9;
+    border-radius: 50%;
+    animation: db-spin 0.8s linear infinite;
+}
+
+@keyframes db-spin { to { transform: rotate(360deg); } }
+
+.db-loading-title  { font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 6px; }
+.db-loading-sub    { font-size: 13px; color: #6b7280; margin-bottom: 14px; }
+.db-loading-progress { font-size: 12px; color: #0ea5e9; font-weight: 600; min-height: 18px; word-break: break-word; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #f3f4f6; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+
+/* ── Part 1 compatibility ── */
+svg { font: 10px sans-serif; }
+.axis line, .axis path { fill: none; stroke: #d1d5db; shape-rendering: crispEdges; }
+.axis text { fill: #6b7280; }
+fieldset { border-width: 0; }
+.color-circle { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+.dot { cursor: pointer; }
+div.tooltip {
+    position: absolute;
+    padding: 6px 10px;
+    background: #1f2937;
+    color: #f9f9f9;
+    border-radius: 6px;
+    pointer-events: none;
+    font-size: 12px;
+}
+.close {
+    display: inline-block;
+    padding: 1px 5px;
+    margin: 4px;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    background: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover { background: #f3f4f6; }
+#legend { border: 1px solid #e5e7eb; padding: 10px; border-radius: 6px; }
+.instructions { color: #ef4444; }
+.optional { color: #16a34a; }
+
+/* ── Responsive ── */
+
+/* Large monitors (> 1600px): give rows a bit more breathing room */
+@media (min-width: 1600px) {
+    .db-main {
+        gap: 12px;
+        padding: 12px;
+    }
+}
+
+/* Standard laptop / desktop (1280–1599px) */
+@media (max-width: 1599px) and (min-width: 1024px) {
+    .db-main {
+        gap: 10px;
+        padding: 10px;
+    }
+    .db-panel {
+        padding: 10px;
+    }
+    .db-panel-label {
+        display: none;
+    }
+    .db-panel-actions {
+        gap: 4px;
+    }
+    .db-panel-btn {
+        padding: 3px 8px;
+        font-size: 8px;
+        height: 22px;
+    }
+    .db-panel-select {
+        padding: 3px 6px;
+        font-size: 8px;
+        height: 22px;
+    }
+    .db-panel-header {
+        padding-bottom: 5px;
+        margin-bottom: 4px;
+    }
+    .db-panel-hint-bar {
+        font-size: 6.5px;
+    }
+}
+
+/* 13-inch laptops (≤ 1280px wide or ≤ 800px tall) */
+@media (max-width: 1280px) {
+    .db-main {
+        gap: 8px;
+        padding: 8px;
+        overflow-y: auto;
+    }
+    .db-panel {
+        padding: 8px;
+    }
+    .db-panel-hint-bar {
+        display: none;
+    }
+    .db-panel-label {
+        display: none;
+    }
+    .db-panel-btn {
+        padding: 2px 7px;
+        font-size: 8px;
+        height: 20px;
+    }
+    .db-panel-select {
+        padding: 2px 5px;
+        font-size: 8px;
+        height: 20px;
+    }
+}
+
+/* Short viewports (height ≤ 768px) — allow vertical scroll */
+@media (max-height: 768px) {
+    .db-main {
+        gap: 6px;
+        padding: 6px;
+    }
+    .db-row-sp-sk,
+    .db-row-ba-hm {
+        min-height: 320px;
+    }
+    #db-pc-wrap {
+        min-height: 200px;
+    }
+}
+
+/* Tablet / small screens (≤ 900px wide) — stack everything vertically */
+@media (max-width: 900px) {
+    .db-main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        overflow-y: auto;
+        padding: 8px;
+        gap: 8px;
+    }
+    .db-row-sp-sk,
+    .db-row-ba-hm,
+    .db-row-50-50 {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    .db-panel {
+        padding: 8px;
+        min-height: 250px;
+    }
+    .db-panel-actions {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .db-panel-label {
+        display: none;
+    }
+    .db-panel-hint-bar {
+        display: none;
+    }
+}
+
+.db-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f0f2f5;
+}
+
+/* ── Progress Ring ── */
+.db-progress-ring-wrap {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+}
+
+.db-progress-ring {
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(14,165,233,0.4));
+}
+
+.db-ring-track {
+    opacity: 0.25;
+}
+
+.db-ring-progress {
+    /* No CSS transition — animation is driven by requestAnimationFrame in JS */
+}
+
+.db-ring-pct-text {
+    font-size: 22px;
+    font-weight: 800;
+    fill: #0ea5e9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.db-ring-sub-text {
+    font-size: 10px;
+    font-weight: 500;
+    fill: #9ca3af;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.05em;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.db-loading-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.db-loading-sub {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.db-loading-progress {
+    font-size: 13px;
+    color: #0ea5e9;
+    font-weight: 500;
+    min-height: 20px;
+    word-break: break-word;
+}
+
+/* ── Enhanced Scatter Plot Dots ── */
+.sp-dot {
+    transition: r 0.15s ease, opacity 0.15s ease;
+    cursor: pointer;
+}
+
+.sp-dot:hover {
+    filter: drop-shadow(0 0 5px rgba(14,165,233,0.8));
+}
+
+/* ── Enhanced PCP Line Hover ── */
+.pc-line {
+    transition: stroke-width 0.12s ease, opacity 0.12s ease;
+    cursor: pointer;
+}
+
+.pc-line:hover {
+    filter: drop-shadow(0 0 4px rgba(14,165,233,0.7));
+}
+
+.pc-line.pc-hovered {
+    stroke-width: 2.5px !important;
+    opacity: 1 !important;
+    filter: drop-shadow(0 0 6px rgba(14,165,233,0.9));
+}
+
+.pc-line.pc-dimmed {
+    opacity: 0.08 !important;
+    stroke-width: 0.5px !important;
+}
+
+
+/* ── Comparison Panel ──────────────────────────────────────────────────────── */
+.db-comparison-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    background: #f8fafc;
+    padding: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.db-comparison-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    width: 32%;
+    min-width: 250px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.db-comp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.db-comp-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.db-comp-cluster {
+    font-size: 11px;
+    background: #f1f5f9;
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: #475569;
+    margin-right: 8px;
+}
+
+.db-comp-remove {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.db-comp-remove:hover {
+    background: #dc2626;
+}
+
+.db-comp-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Custom scrollbar for comparison body */
+.db-comp-body::-webkit-scrollbar {
+    width: 4px;
+}
+.db-comp-body::-webkit-scrollbar-track {
+    background: #f1f5f9; 
+}
+.db-comp-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1; 
+    border-radius: 4px;
+}
+.db-comp-body::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; 
+}
+
+.db-comp-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #334155;
+    padding: 2px 0;
+}
+
+.db-comp-row span:last-child {
+    font-family: 'Inter', sans-serif;
+    color: #000000;
+    font-weight: 600;
+}

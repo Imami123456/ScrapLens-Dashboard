@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrapLens — Sustainable Aluminium Alloy Discovery</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+    <meta http-equiv="refresh" content="0; url=dashboard/">
+    <script>
+        window.location.replace("dashboard/");
+    </script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 480px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .logo {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: inline-block;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        p { color: #94a3b8; font-size: 15px; line-height: 1.5; margin-bottom: 24px; }
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
+        }
+        a:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(14, 165, 233, 0.5); }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">⬡</div>
+        <h1>ScrapLens</h1>
+        <p>Sustainable Aluminium Alloy Discovery Dashboard<br>Redirecting to dashboard application…</p>
+        <a href="dashboard/">Launch ScrapLens →</a>
+    </div>
+</body>
+</html>

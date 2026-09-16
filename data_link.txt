@@ -1,0 +1,9 @@
+Dataset for ScrapLens Dashboard
+
+Name: 02a_OUTPUT_Summary.csv
+Source: https://zenodo.org/records/14160521
+
+Size: ~150 MB, >100,000 rows, 70 columns
+Contest: IEEE SciVis Contest 2025
+
+Please download the CSV file from the Zenodo link above and load it via the "Data Loading" tab in the application.

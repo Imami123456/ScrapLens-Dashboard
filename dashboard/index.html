@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+Burhanuddin Imami
+6171 UE Data Visualization, SoSe 2026, University of Passau
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ScrapLens — Data Visualization</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="style.css?v=2">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- Shared state & utilities (must load before any chart file) -->
+    <script src="js/state.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/kmeans.js"></script>
+    <!-- One file per chart -->
+    <script src="js/chart-pc.js"></script>
+    <script src="js/chart-scatter.js"></script>
+    <script src="js/chart-sankey.js"></script>
+    <script src="js/chart-bar.js"></script>
+    <script src="js/chart-heatmap.js"></script>
+    <!-- Dashboard scaffold (depends on all chart files above) -->
+    <script src="js/dashboard-core.js"></script>
+    <!-- Data loading, file upload, storage & tab switching -->
+    <script src="dataVis.js"></script>
+</head>
+
+<body onload="init()">
+
+<!-- ── Top navigation bar ── -->
+<div class="top-nav">
+    <div class="top-nav-title">
+        <span class="top-nav-logo">⬡</span>
+        ScrapLens
+        <span class="top-nav-sub">Sustainable Aluminium Alloy Discovery</span>
+    </div>
+    <div class="top-nav-tabs">
+        <button class="tablink" onclick="openPage('DataLoading', this)" id="defaultOpen">
+            📂 Load Data
+        </button>
+        <button class="tablink" onclick="openPage('Dashboard', this)">
+            ◈ Dashboard
+        </button>
+    </div>
+</div>
+
+<!-- Tab: Data Loading -->
+<div id="DataLoading" class="tabcontent">
+    <div class="load-wrap">
+        <div class="load-hero">
+            <div class="load-hero-icon">📊</div>
+            <h2 class="load-title">Load Your Dataset</h2>
+            <p class="load-desc">Explore the IEEE SciVis Contest 2025 dataset with 1,000 sample alloys instantly, or upload your own TSV/CSV file.</p>
+            
+            <div class="load-actions-row">
+                <button id="demo-btn" class="load-demo-btn" onclick="loadSampleDataset()" title="Explore instantly with 1,000 real alloys">
+                    <span>⚡ Load Sample Dataset (Instant Demo)</span>
+                </button>
+                <div class="load-divider"><span>OR</span></div>
+                <label class="load-file-label" title="Upload local file">
+                    <span>📂 Choose File</span>
+                    <input id="upload" type="file">
+                </label>
+            </div>
+            
+            <div class="row-limit-wrap" style="margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <label for="max-rows-input" style="font-size: 14px; color: #475569; font-weight: 600;">Max Rows to Load:</label>
+                <input id="max-rows-input" type="number" value="5000" min="100" max="100000" step="100" 
+                    style="padding: 6px 10px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 14px; width: 100px; outline: none;">
+                <button id="reload-btn" class="db-btn" style="padding: 6px 14px;">Reload Data</button>
+            </div>
+        </div>
+        
+        <!-- ── Storage Status ── -->
+        <div id="storage-status" class="storage-status" style="display: none;">
+            <p id="storage-message"></p>
+            <button id="clear-storage-btn" class="clear-storage-btn">🗑️ Clear Saved Data</button>
+        </div>
+        
+        <div class="table-scroll-wrap">
+            <div id="dataTable"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Tab: Dashboard -->
+<div id="Dashboard" class="tabcontent">
+    <div id="scraplens-root"></div>
+</div>
+
+</body>
+</html>
